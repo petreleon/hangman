@@ -113,9 +113,9 @@ class GamePlay {
 
 class Game {
   constructor(words, _UI) {
-    this.words = [...words];
+    this.words =  JSON.parse(JSON.stringify(words));
     this._UI = _UI;
-    this._UI.assignReset(this.newGame);
+    this._UI.assignReset(() => this.newGame());
     this.newGame();
   }
 
